@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="template1"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content1">
+    <div class="col-md-6 offset-3">
+    <form method="post" th:action="@{save}">
+        <div>
+            <label>Nom</label>
+            <input type="text" name="nom" th:value="${patient.getName()}" class="form-control">
+        </div>
+        <div>
+            <label>Date Naissance</label>
+            <input type="date" name="dateNaissance" th:value="${patient.getDateNaissance()}" class="form-control">
+        </div>
+        <div>
+            <label>Malade</label>
+            <input type="checkbox" name="malade" th:checked="${patient.isMalade()}">
+        </div>
+        <div>
+            <label>Score</label>
+            <input type="text" name="score" th:value="${patient.getScore()}" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+
+    </form>
+</div>
+</div>
+</body>
+</html>
